@@ -28,3 +28,7 @@ group :test do
   gem 'launchy'
   gem 'simplecov', :require => false
 end
+
+group :development do
+ gem 'figaro'
+end
