@@ -30,5 +30,5 @@ group :test do
 end
 
 group :development do
- gem 'figaro'
+  gem 'figaro'
 end
