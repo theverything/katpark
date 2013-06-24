@@ -1,4 +1,5 @@
 class Admin::PostsController < Admin::BaseController
+  before_filter :find_post, only: [:show, :edit, :update, :destroy]
   def index
     @posts = Post.order('created_at DESC')
   end
@@ -22,11 +23,9 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update_attributes(params[:post])
       flash[:notice] = "Post updated successfully."
       redirect_to admin_root_path
@@ -34,5 +33,16 @@ class Admin::PostsController < Admin::BaseController
       flash[:alert] = "There was an error updating your post."
       render "edit"
     end
+  end
+
+  def destroy
+    @post.destroy
+    flash[:notice] = "Post was deleted."
+    redirect_to admin_root_path
+  end
+
+  private
+  def find_post
+    @post = Post.find(params[:id])
   end
 end
