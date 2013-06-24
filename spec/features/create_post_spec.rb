@@ -17,6 +17,7 @@ feature "Create Post" do
     visit '/'
     click_link 'Blog'
     page.should have_content("Hello World")
+    page.should have_content("This is a new post.")
   end
 
   scenario "admin can't add new post without title" do

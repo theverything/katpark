@@ -1,0 +1,7 @@
+<tr>
+  <td><%= post.title %></td>
+  <td><%= post.body %></td>
+  <td><%= post.created_at %></td>
+  <td><%= link_to "Edit", edit_admin_post_path(post) %></td>
+  <td><%= link_to "Delete", admin_post_path(post), method: "delete", confirm: "Are you sure?" %></td>
+</tr>

@@ -1,5 +1,6 @@
 class Admin::PostsController < Admin::BaseController
   def index
+    @posts = Post.order('created_at DESC')
   end
 
   def show
@@ -21,5 +22,17 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update_attributes(params[:post])
+      flash[:notice] = "Post updated successfully."
+      redirect_to admin_root_path
+    else
+      flash[:alert] = "There was an error updating your post."
+      render "edit"
+    end
   end
 end
