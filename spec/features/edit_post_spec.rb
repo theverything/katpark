@@ -21,6 +21,17 @@ feature "Edit Post" do
     page.should have_content("Edited body.")
   end
 
+  scenario "admin can edit featured posts" do
+    fill_in "Title", with: "Edited Title"
+    fill_in "Body", with: "Edited body."
+    check 'post_featured'
+    click_button "Update Post"
+    page.should have_content("Post updated successfully.")
+    visit "/"
+    page.should have_content("Edited Title")
+    page.should have_content("Edited body.")
+  end
+
   scenario "admin can't edit post without title" do
     fill_in 'Title', with: ""
     fill_in 'Body', with: "This is a new post."

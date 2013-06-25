@@ -20,6 +20,17 @@ feature "Create Post" do
     page.should have_content("This is a new post.")
   end
 
+  scenario "admin add new featured post" do
+    fill_in 'Title', with: "Hello World"
+    fill_in 'Body', with: "This is a new post."
+    check 'post_featured'
+    click_button "Create Post"
+    page.should have_content("New post created successfully.")
+    visit '/'
+    page.should have_content("Hello World")
+    page.should have_content("This is a new post.")
+  end
+
   scenario "admin can't add new post without title" do
     fill_in 'Title', with: ""
     fill_in 'Body', with: "This is a new post."

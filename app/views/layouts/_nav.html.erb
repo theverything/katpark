@@ -2,7 +2,7 @@
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
-        <h1><a href="#">Top Bar Title </a></h1>
+        <h1><%= link_to "Kat Park", root_path %></h1>
       </li>
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
@@ -17,6 +17,15 @@
         <li class="divider"></li>
         <li><a href="#">Portfolio</a></li>
         <li class="divider"></li>
+        <% if admin_signed_in? %>
+          <li class="has-dropdown"><a href="#"><%= current_admin.email %></a>
+            <ul class="dropdown">
+              <li><%= link_to "Dashboard", admin_root_path %></li>
+              <li><%= link_to "Sign Out", destroy_admin_session_path, method: "delete" %></li>
+            </ul>
+          </li>
+          <li class="divider"></li>
+        <% end %>
       </ul>
     </section>
   </nav>
