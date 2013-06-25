@@ -9,6 +9,7 @@ Katpark::Application.routes.draw do
   end
 
   resources :posts, only: [:show, :index]
+  resources :contacts, only: [:new, :create]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

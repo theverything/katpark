@@ -5,6 +5,7 @@ gem 'pg'
 gem 'jquery-rails'
 gem 'devise'
 gem 'thin'
+gem 'opengraph', git: 'https://github.com/intridea/opengraph.git'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

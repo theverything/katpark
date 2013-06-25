@@ -1,0 +1,23 @@
+<div class="large-8 columns">
+  <%= form_for @contact do |f| %>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+    <%= f.label :email, "Email" %>
+    <%= f.text_field :email %>
+    <%= f.label :city, "City" %>
+    <%= f.text_field :city %>
+    <%= f.label :phone_number, "Phone Number" %>
+    <%= f.text_field :phone_number %>
+    <%= f.label :message, "Message" %>
+    <%= f.text_area :message %>
+    <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+  <% end %>
+</div>
+<div class="large-3 large-offset-1 columns panel">
+  <img src="<%= @style_seat.image %>">
+  <h5><%= @style_seat.title %></h5>
+  <p><%= @style_seat.street_address %></p>
+  <p><%= "#{@style_seat.locality}, #{@style_seat.region} #{@style_seat.postal_code}" %></p>
+  <p><%= @style_seat.phone_number %></p>
+  <a href="https://www.styleseat.com/katpark" class="button">Book Me</a>
+</div>
