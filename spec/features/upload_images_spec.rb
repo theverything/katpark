@@ -6,7 +6,7 @@ feature "Image Upload" do
   before :each do
     visit "/admin"
     sign_in_as!(admin)
-    click_link "Upload Image"
+    click_link "Images"
   end
 
   scenario "admin can upload an image" do

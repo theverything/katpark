@@ -1,5 +1,6 @@
 class Admin::PostsController < Admin::BaseController
   before_filter :find_post, only: [:show, :edit, :update, :destroy]
+
   def index
     @posts = Post.order('created_at DESC')
   end
@@ -9,6 +10,7 @@ class Admin::PostsController < Admin::BaseController
 
   def new
     @post = Post.new
+    @images = Image.order('created_at DESC').limit(5)
   end
 
   def create
@@ -23,6 +25,7 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def edit
+    @images = Image.order('created_at DESC').limit(5)
   end
 
   def update

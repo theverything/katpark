@@ -1,20 +1,21 @@
 class Admin::ImagesController < Admin::BaseController
   def index
     @images = Image.all
-  end
-
-  def new
     @image = Image.new
   end
 
+  def new
+  end
+
   def create
+    @images = Image.all
     @image = Image.new(params[:image])
     if @image.save
       flash[:notice] = "Image has been uploaded."
       redirect_to admin_images_path
     else
       flash[:alert] = "There was a problem uploading the image."
-      render "new"
+      render "index"
     end
   end
 

@@ -6,7 +6,7 @@ feature "Delete Images" do
   scenario "admin can delete uploaded images" do
     visit "/admin"
     sign_in_as!(admin)
-    click_link "Upload Image"
+    click_link "Images"
     attach_file "Image #1", File.expand_path("spec/fixtures/image1.jpg")
     click_button "Upload Image"
     click_link "Delete"
