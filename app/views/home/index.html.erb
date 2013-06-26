@@ -22,7 +22,7 @@
     <% if @featured %>
       <h4><%= @featured.title %></h4>
       <p>
-        <%= @featured.body.truncate(275) %>
+        <%== markdown(@featured.body.truncate(275)) %>
       </p>
     <% end %>
   </div>

@@ -6,6 +6,9 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'thin'
 gem 'opengraph', git: 'https://github.com/intridea/opengraph.git'
+gem 'paperclip'
+gem 'aws-sdk'
+gem 'redcarpet'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -25,6 +28,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'factory_girl', '2.6.4'
   gem 'launchy'
   gem 'simplecov', :require => false
