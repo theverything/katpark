@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130625060526) do
+ActiveRecord::Schema.define(:version => 20130626051314) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(:version => 20130625060526) do
     t.datetime "updated_at",   :null => false
   end
 
+  create_table "images", :force => true do |t|
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+  end
+
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
@@ -48,6 +57,18 @@ ActiveRecord::Schema.define(:version => 20130625060526) do
     t.datetime "updated_at",                    :null => false
     t.boolean  "featured",   :default => false
     t.string   "category"
+  end
+
+  create_table "style_seats", :force => true do |t|
+    t.string   "title"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "phone_number"
+    t.string   "image"
   end
 
 end
