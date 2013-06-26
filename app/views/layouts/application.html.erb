@@ -21,8 +21,10 @@
   </head>
 
   <body>
-    <%= render partial: 'layouts/flash', locals: { flash: flash } %>
-    <%= render 'layouts/nav' %>
+    <header>
+      <%= render partial: 'layouts/flash', locals: { flash: flash } %>
+      <%= render 'layouts/nav' %>
+    </header>
     <div class="row">
       <%= yield %>
     </div>

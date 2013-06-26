@@ -6,6 +6,7 @@ Katpark::Application.routes.draw do
   namespace :admin do
     root to: "posts#index"
     resources :posts
+    resources :images
   end
 
   resources :posts, only: [:show, :index]

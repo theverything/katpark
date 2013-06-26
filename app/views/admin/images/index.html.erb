@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>Image Name</th>
+      <th>Image Type</th>
+      <th>Image Size</th>
+      <th>Image</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @images.each do |image| %>
+    <tr>
+      <td><%= image.avatar_file_name %></td>
+      <td><%= image.avatar_content_type %></td>
+      <td><%= number_to_human_size(image.avatar_file_size) %></td>
+      <td><%= image_tag image.avatar.url(:thumb) %></td>
+      <td><%= link_to "Delete", admin_image_path(image), method: "delete", confirm: "Are you sure?" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
