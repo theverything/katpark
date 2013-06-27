@@ -9,6 +9,7 @@ gem 'opengraph', git: 'https://github.com/intridea/opengraph.git'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'redcarpet'
+gem 'dynamic_form'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -22,8 +23,7 @@ group :test, :development do
   gem 'pry-rails'
   gem 'pry-debugger'
   gem 'pry-doc'
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  gem 'figaro'
 end
 
 group :test do
@@ -35,5 +35,6 @@ group :test do
 end
 
 group :development do
-  gem 'figaro'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end

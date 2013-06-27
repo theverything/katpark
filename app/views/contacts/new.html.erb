@@ -1,5 +1,6 @@
 <div class="large-8 columns">
   <%= form_for @contact do |f| %>
+    <p><%= f.error_messages %></p>
     <%= f.label :name, "Name" %>
     <%= f.text_field :name %>
     <%= f.label :email, "Email" %>

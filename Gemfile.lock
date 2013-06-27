@@ -85,6 +85,7 @@ GEM
       railties (~> 3.1)
       warden (~> 1.2.1)
     diff-lcs (1.2.4)
+    dynamic_form (1.1.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (1.4.0)
@@ -226,6 +227,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 3.2.1)
   devise
+  dynamic_form
   factory_girl (= 2.6.4)
   figaro
   jquery-rails
