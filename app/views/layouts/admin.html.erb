@@ -21,15 +21,17 @@
   </head>
 
   <body>
-    <%= render partial: 'layouts/flash', locals: { flash: flash } %>
-    <%= render 'layouts/nav' %>
+    <header>
+      <%= render partial: 'layouts/flash', locals: { flash: flash } %>
+      <%= render 'layouts/nav' %>
+    </header>
     <div class="row">
       <%= render 'admin/side_nav' %>
       <div class="large-10 columns">
         <%= yield %>
       </div>
     </div>
-
+    <footer></footer>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
