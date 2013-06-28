@@ -10,6 +10,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'redcarpet'
 gem 'dynamic_form'
+gem 'delayed_job_active_record'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
