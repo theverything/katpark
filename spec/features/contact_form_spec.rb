@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 feature "Contact Form" do
+  include EmailSpec::Helpers
+  include EmailSpec::Matchers
+
   let!(:styleseat) do
     ss = StyleSeat.new
     ss.title = "Kat Park, Stylist"
@@ -27,6 +30,19 @@ feature "Contact Form" do
     fill_in "Message", with: "This is a message."
     click_button "Submit"
     page.should have_content("Your message has been sent.")
+  end
+
+  scenario "admin gets an email after user submits contact form" do
+    @contact = Contact.create(name: "John Doe", email: "john@doe.com",
+      phone_number: "7145551234", city: "Walnut", message: "This is a message.")
+    @email = ContactMailer.new_message(@contact)
+    @email.should deliver_to("kat@kat-park.com")
+    @email.should deliver_from("john@doe.com")
+    @email.should have_subject("New Message from John Doe")
+    @email.should have_body_text(/Name: John Doe/)
+    @email.should have_body_text(/Email: john@doe\.com/)
+    @email.should have_body_text(/City: Walnut/)
+    @email.should have_body_text(/Message: This is a message\./)
   end
 
   scenario "user can't send message without name" do

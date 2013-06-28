@@ -8,6 +8,7 @@ class ContactsController < ApplicationController
     @style_seat = StyleSeat.first
     @contact = Contact.new(params[:contact])
     if @contact.save
+      ContactMailer.new_message(@contact).deliver
       flash[:notice] = "Your message has been sent."
       redirect_to new_contact_path
     else

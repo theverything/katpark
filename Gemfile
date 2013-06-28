@@ -32,6 +32,7 @@ group :test do
   gem 'factory_girl', '2.6.4'
   gem 'launchy'
   gem 'simplecov', :require => false
+  gem 'email_spec'
 end
 
 group :development do
