@@ -1,4 +1,4 @@
-<div class="large-8 columns">
+<div class="large-8 columns border-blush">
   <%= form_for @contact do |f| %>
     <p><%= f.error_messages %></p>
     <%= f.label :name, "Name" %>
@@ -14,7 +14,7 @@
     <%= f.submit "Submit", :disable_with => 'Submiting...', class: "button" %>
   <% end %>
 </div>
-<div class="large-3 large-offset-1 columns panel">
+<div class="large-3 large-offset-1 columns border-lav">
   <img src="<%= @style_seat.image %>">
   <h5><%= @style_seat.title %></h5>
   <p><%= @style_seat.street_address %></p>

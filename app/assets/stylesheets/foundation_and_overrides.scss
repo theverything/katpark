@@ -136,10 +136,10 @@ $default-float: left;
 
 // Heading font styles
 
-// $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-// $header-font-weight: bold;
+$header-font-family: 'Raleway', san-serif;
+$header-font-weight: normal;
 // $header-font-style: normal;
-// $header-font-color: #222;
+$header-font-color: #969696;
 // $header-line-height: 1.4;
 // $header-top-margin: .2em;
 // $header-bottom-margin: .5em;
@@ -776,7 +776,7 @@ $alert-bottom-margin: emCalc(0px);
 
 // Caption styles
 
-// $orbit-container-bg: #f5f5f5;
+$orbit-container-bg: #fff;
 // $orbit-caption-bg-old: rgb(0,0,0);
 // $orbit-caption-bg: rgba(0,0,0,0.6);
 // $orbit-caption-font-color: #fff;
@@ -851,6 +851,7 @@ $alert-bottom-margin: emCalc(0px);
 // Background and border styles
 
 // $panel-bg: darken(#fff, 5%);
+$panel-bg: #fff;
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
 
@@ -862,7 +863,7 @@ $alert-bottom-margin: emCalc(0px);
 // Inner padding and bottom margin
 
 // $panel-margin-bottom: emCalc(20px);
-// $panel-padding: emCalc(20px);
+// $panel-padding: emCalc(10px);
 
 // Font colors
 
@@ -1203,11 +1204,11 @@ $alert-bottom-margin: emCalc(0px);
 
 // Background color for the top bar
 
-// $topbar-bg: #111 !default;
+$topbar-bg: #CCF8E5 !default;
 
 // Height and margin
 
-// $topbar-height: 45px;
+$topbar-height: 75px;
 // $topbar-margin-bottom: emCalc(30px);
 
 // Control Input height for top bar
@@ -1216,12 +1217,12 @@ $alert-bottom-margin: emCalc(0px);
 
 // Controlling the styles for the title in the top bar
 
-// $topbar-title-weight: bold;
-// $topbar-title-font-size: emCalc(17px);
+$topbar-title-weight: normal;
+$topbar-title-font-size: emCalc(40px);
 
 // Style the top bar dropdown elements
 
-// $topbar-dropdown-bg: #222;
+$topbar-dropdown-bg: lighten($topbar-bg, 5%);
 // $topbar-dropdown-link-color: #fff;
 // $topbar-dropdown-link-bg: lighten($topbar-bg, 5%);
 // $topbar-dropdown-toggle-size: 5px;
@@ -1231,15 +1232,15 @@ $alert-bottom-margin: emCalc(0px);
 // Set the link colors and styles for top-level nav
 
 // $topbar-link-color: #fff;
-// $topbar-link-color-hover: #fff;
+$topbar-link-color-hover: #787878;
 // $topbar-link-color-active: #fff;
 // $topbar-link-weight: bold;
-// $topbar-link-font-size: emCalc(13px);
+$topbar-link-font-size: emCalc(18px);
 // $topbar-link-hover-lightness: -30%; // Darken by 30%
 // $topbar-link-bg-hover: darken($topbar-bg, 3%);
 // $topbar-link-bg-active: darken($topbar-bg, 3%);
 
-// $topbar-dropdown-label-color: #555;
+// $topbar-dropdown-label-color: darken($topbar-bg, 3%);
 // $topbar-dropdown-label-text-transform: uppercase;
 // $topbar-dropdown-label-font-weight: bold;
 // $topbar-dropdown-label-font-size: emCalc(10px);
@@ -1249,8 +1250,8 @@ $alert-bottom-margin: emCalc(0px);
 // $topbar-menu-link-transform: uppercase;
 // $topbar-menu-link-font-size: emCalc(13px);
 // $topbar-menu-link-weight: bold;
-// $topbar-menu-link-color: #fff;
-// $topbar-menu-icon-color: #fff;
+$topbar-menu-link-color: #969696;
+$topbar-menu-icon-color: #969696;
 // $topbar-menu-link-color-toggled: #888;
 // $topbar-menu-icon-color-toggled: #888;
 
