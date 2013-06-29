@@ -1,32 +1,38 @@
 <div class="row">
-  <div class="slideshow-wrapper">
-    <div class="preloader"></div>
-    <ul data-orbit>
-      <li>
-        <img src="http://placekitten.com/g/1050/500" />
-        <div class="orbit-caption">Amazing</div>
-      </li>
-      <li>
-        <img src="http://placekitten.com/g/1050/500" />
-        <div class="orbit-caption">Beautiful</div>
-      </li>
-      <li>
-        <img src="http://placekitten.com/g/1050/500" />
-        <div class="orbit-caption">Pretty</div>
-      </li>
-    </ul>
+  <div class="large-7 columns border-lav">
+    <div class="slideshow-wrapper">
+      <div class="preloader"></div>
+      <ul data-orbit>
+        <li>
+          <img src="http://placekitten.com/g/800/500" />
+          <div class="orbit-caption">Amazing</div>
+        </li>
+        <li>
+          <img src="http://placekitten.com/g/800/500" />
+          <div class="orbit-caption">Beautiful</div>
+        </li>
+        <li>
+          <img src="http://placekitten.com/g/800/500" />
+          <div class="orbit-caption">Pretty</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="large-4 large-offset-1 columns border-blush">
+    <h4>#katpark</h4>
+    <div class="instagram"></div>
   </div>
 </div>
 <div class="row">
-  <div class="large-4 columns panel">
+  <div class="large-4 columns border-blush">
     <% if @featured %>
       <h4><%= @featured.title %></h4>
       <p>
-        <%== markdown(@featured.body.truncate(275)) %>
+        <%== markdown(@featured.body.truncate(250)) %>
       </p>
     <% end %>
   </div>
-  <div class="large-7 large-offset-1 columns panel">
+  <div class="large-7 large-offset-1 columns border-lav">
     <div class="row">
       <div class="large-8 columns"><img src="http://placekitten.com/g/500/300"></div>
       <div class="large-4 columns">
