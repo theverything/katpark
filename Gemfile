@@ -11,6 +11,7 @@ gem 'aws-sdk'
 gem 'redcarpet'
 gem 'dynamic_form'
 gem 'delayed_job_active_record'
+gem 'will_paginate'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

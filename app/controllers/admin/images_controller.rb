@@ -1,7 +1,11 @@
 class Admin::ImagesController < Admin::BaseController
   def index
-    @images = Image.all
+    @images = Image.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
     @image = Image.new
+    respond_to do |format|
+      format.html
+      format.js # add this line for your js template
+    end
   end
 
   def new
