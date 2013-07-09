@@ -4,7 +4,6 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'jquery-rails'
 gem 'devise'
-gem 'thin'
 gem 'opengraph', git: 'https://github.com/intridea/opengraph.git'
 gem 'paperclip'
 gem 'aws-sdk'
@@ -12,6 +11,10 @@ gem 'redcarpet'
 gem 'dynamic_form'
 gem 'delayed_job_active_record'
 gem 'will_paginate'
+
+group :production do
+  gem 'unicorn'
+end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -26,6 +29,7 @@ group :test, :development do
   gem 'pry-debugger'
   gem 'pry-doc'
   gem 'figaro'
+  gem 'thin'
 end
 
 group :test do
