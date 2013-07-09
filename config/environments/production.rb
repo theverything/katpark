@@ -66,7 +66,12 @@ Katpark::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # Paper Clip Defaults
-  config.paperclip_defaults = { storage: :s3,
-    s3_credentials: "#{Rails.root}/config/s3.yml",
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+      secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
+      bucket: ENV["AWS_BUCKET"]
+      },
     path: '/:class/:attachment/:id_partition/:style/:filename' }
 end
