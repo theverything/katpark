@@ -6,6 +6,6 @@ class ContactMailer < ActionMailer::Base
     @city = contact.city
     @message = contact.message
 
-    mail to: "kat@kat-park.com", from: @email, subject: "New Message from #{@name}"
+    mail to: "j3ffhorn@gmail.com", from: @email, subject: "New Message from #{@name}"
   end
 end
