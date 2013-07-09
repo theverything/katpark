@@ -33,7 +33,7 @@ feature "Contact Form" do
   end
 
   scenario "admin gets an email after user submits contact form" do
-    @contact = Contact.create(name: "John Doe", email: "john@doe.com",
+    @contact = double(name: "John Doe", email: "john@doe.com",
       phone_number: "7145551234", city: "Walnut", message: "This is a message.")
     @email = ContactMailer.new_message(@contact)
     @email.should deliver_to("kat@kat-park.com")
