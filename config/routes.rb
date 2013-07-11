@@ -9,6 +9,10 @@ Katpark::Application.routes.draw do
     resources :images
   end
 
+  devise_scope :admin do
+    get "/login" => "devise/sessions#new"
+  end
+
   resources :posts, only: [:show, :index]
   resources :contacts, only: [:new, :create]
 

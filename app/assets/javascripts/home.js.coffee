@@ -6,6 +6,6 @@ $ ->
   $(".instagram").instagram
       hash: 'katpark'
       clientId: 'c3901ab170794c17a0c29c77a565c23a'
-      show: 1
-      image_size: 'low_resolution'
+      show: 5
+      image_size: 'thumbnail'
 
