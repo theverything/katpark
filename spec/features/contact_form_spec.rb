@@ -36,7 +36,7 @@ feature "Contact Form" do
     @contact = double(name: "John Doe", email: "john@doe.com",
       phone_number: "7145551234", city: "Walnut", message: "This is a message.")
     @email = ContactMailer.new_message(@contact)
-    @email.should deliver_to("kat@kat-park.com")
+    @email.should deliver_to("j3ffhorn@gmail.com")
     @email.should deliver_from("john@doe.com")
     @email.should have_subject("New Message from John Doe")
     @email.should have_body_text(/Name: John Doe/)
