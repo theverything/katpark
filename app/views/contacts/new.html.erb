@@ -1,24 +1,26 @@
-<div class="large-8 columns border-blush">
-  <%= form_for @contact do |f| %>
-    <p><%= f.error_messages %></p>
-    <%= f.label :name, "Name" %>
-    <%= f.text_field :name %>
-    <%= f.label :email, "Email" %>
-    <%= f.text_field :email %>
-    <%= f.label :city, "City" %>
-    <%= f.text_field :city %>
-    <%= f.label :phone_number, "Phone Number" %>
-    <%= f.text_field :phone_number %>
-    <%= f.label :message, "Message" %>
-    <%= f.text_area :message %>
-    <%= f.submit "Submit", :disable_with => 'Submiting...', class: "button" %>
-  <% end %>
-</div>
-<div class="large-3 large-offset-1 columns border-lav">
-  <img src="<%= @style_seat.image %>">
-  <h5><%= @style_seat.title %></h5>
-  <p><%= @style_seat.street_address %></p>
-  <p><%= "#{@style_seat.city}, #{@style_seat.state} #{@style_seat.zip_code}" %></p>
-  <p><%= @style_seat.phone_number %></p>
-  <a href="https://www.styleseat.com/katpark" class="button">Book Me</a>
+<div class="row">
+  <div class="large-8 columns border-blush">
+    <%= form_for @contact do |f| %>
+      <p><%= f.error_messages %></p>
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name %>
+      <%= f.label :email, "Email" %>
+      <%= f.text_field :email %>
+      <%= f.label :city, "City" %>
+      <%= f.text_field :city %>
+      <%= f.label :phone_number, "Phone Number" %>
+      <%= f.text_field :phone_number %>
+      <%= f.label :message, "Message" %>
+      <%= f.text_area :message %>
+      <%= f.submit "Submit", :disable_with => 'Submiting...', class: "button" %>
+    <% end %>
+  </div>
+  <div class="large-3 large-offset-1 columns border-lav">
+    <img src="<%= @style_seat.image %>">
+    <h5><%= @style_seat.title %></h5>
+    <p><%= @style_seat.street_address %></p>
+    <p><%= "#{@style_seat.city}, #{@style_seat.state} #{@style_seat.zip_code}" %></p>
+    <p><%= @style_seat.phone_number %></p>
+    <a href="https://www.styleseat.com/katpark" class="button">Book Me</a>
+  </div>
 </div>
