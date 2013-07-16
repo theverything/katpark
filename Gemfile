@@ -13,6 +13,7 @@ gem 'redcarpet'
 gem 'dynamic_form'
 gem 'delayed_job_active_record'
 gem 'will_paginate'
+gem 'foundation_rails_helper'
 
 group :production do
   gem 'unicorn'

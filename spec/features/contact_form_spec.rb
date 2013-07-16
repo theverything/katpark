@@ -23,11 +23,11 @@ feature "Contact Form" do
   end
 
   scenario "user adds information" do
-    fill_in "Name", with: "John Doe"
-    fill_in "Email", with: "john@doe.com"
-    fill_in "Phone Number", with: "7145551234"
-    fill_in "City", with: "Walnut"
-    fill_in "Message", with: "This is a message."
+    fill_in "contact[name]", with: "John Doe"
+    fill_in "contact[email]", with: "john@doe.com"
+    fill_in "contact[phone_number]", with: "7145551234"
+    fill_in "contact[city]", with: "Walnut"
+    fill_in "contact[message]", with: "This is a message."
     click_button "Submit"
     page.should have_content("Your message has been sent.")
   end
@@ -46,80 +46,80 @@ feature "Contact Form" do
   end
 
   scenario "user can't send message without name" do
-    fill_in "Name", with: ""
-    fill_in "Email", with: "john@doe.com"
-    fill_in "Phone Number", with: "7145551234"
-    fill_in "City", with: "Walnut"
-    fill_in "Message", with: "This is a message."
+    fill_in "contact[name]", with: ""
+    fill_in "contact[email]", with: "john@doe.com"
+    fill_in "contact[phone_number]", with: "7145551234"
+    fill_in "contact[city]", with: "Walnut"
+    fill_in "contact[message]", with: "This is a message."
     click_button "Submit"
     page.should have_content("There was an error sending your message.")
-    page.should have_content("Name can't be blank")
+    page.should have_content("Namecan't be blank")
   end
 
   scenario "user can't send message without email" do
-    fill_in "Name", with: "John Doe"
-    fill_in "Email", with: ""
-    fill_in "Phone Number", with: "7145551234"
-    fill_in "City", with: "Walnut"
-    fill_in "Message", with: "This is a message."
+    fill_in "contact[name]", with: "John Doe"
+    fill_in "contact[email]", with: ""
+    fill_in "contact[phone_number]", with: "7145551234"
+    fill_in "contact[city]", with: "Walnut"
+    fill_in "contact[message]", with: "This is a message."
     click_button "Submit"
     page.should have_content("There was an error sending your message.")
-    page.should have_content("Email can't be blank")
+    page.should have_content("Emailcan't be blank")
   end
 
   scenario "user can't send message without phone number" do
-    fill_in "Name", with: "John Doe"
-    fill_in "Email", with: "john@doe.com"
-    fill_in "Phone Number", with: ""
-    fill_in "City", with: "Walnut"
-    fill_in "Message", with: "This is a message."
+    fill_in "contact[name]", with: "John Doe"
+    fill_in "contact[email]", with: "john@doe.com"
+    fill_in "contact[phone_number]", with: ""
+    fill_in "contact[city]", with: "Walnut"
+    fill_in "contact[message]", with: "This is a message."
     click_button "Submit"
     page.should have_content("There was an error sending your message.")
-    page.should have_content("Phone number can't be blank")
+    page.should have_content("Phone numbercan't be blank")
   end
 
   scenario "user can't send message without city" do
-    fill_in "Name", with: "John Doe"
-    fill_in "Email", with: "john@doe.com"
-    fill_in "Phone Number", with: "7145551234"
-    fill_in "City", with: ""
-    fill_in "Message", with: "This is a message."
+    fill_in "contact[name]", with: "John Doe"
+    fill_in "contact[email]", with: "john@doe.com"
+    fill_in "contact[phone_number]", with: "7145551234"
+    fill_in "contact[city]", with: ""
+    fill_in "contact[message]", with: "This is a message."
     click_button "Submit"
     page.should have_content("There was an error sending your message.")
-    page.should have_content("City can't be blank")
+    page.should have_content("Citycan't be blank")
   end
 
   scenario "user can't send message without message" do
-    fill_in "Name", with: "John Doe"
-    fill_in "Email", with: "john@doe.com"
-    fill_in "Phone Number", with: "7145551234"
-    fill_in "City", with: "Walnut"
-    fill_in "Message", with: ""
+    fill_in "contact[name]", with: "John Doe"
+    fill_in "contact[email]", with: "john@doe.com"
+    fill_in "contact[phone_number]", with: "7145551234"
+    fill_in "contact[city]", with: "Walnut"
+    fill_in "contact[message]", with: ""
     click_button "Submit"
     page.should have_content("There was an error sending your message.")
     page.should have_content("Message can't be blank")
   end
 
    scenario "user can't send message with invalid email" do
-    fill_in "Name", with: "John Doe"
-    fill_in "Email", with: "invalid%email.456"
-    fill_in "Phone Number", with: "7145551234"
-    fill_in "City", with: "Walnut"
-    fill_in "Message", with: "This is a message."
+    fill_in "contact[name]", with: "John Doe"
+    fill_in "contact[email]", with: "invalid%email.456"
+    fill_in "contact[phone_number]", with: "7145551234"
+    fill_in "contact[city]", with: "Walnut"
+    fill_in "contact[message]", with: "This is a message."
     click_button "Submit"
     page.should have_content("There was an error sending your message.")
-    page.should have_content("Email is invalid")
+    page.should have_content("Emailis invalid")
   end
 
   scenario "user can't send message with invalid phone number" do
-    fill_in "Name", with: "John Doe"
-    fill_in "Email", with: "john@doe.com"
-    fill_in "Phone Number", with: "9874kjhkjhsd"
-    fill_in "City", with: "Walnut"
-    fill_in "Message", with: "This is a message."
+    fill_in "contact[name]", with: "John Doe"
+    fill_in "contact[email]", with: "john@doe.com"
+    fill_in "contact[phone_number]", with: "9874kjhkjhsd"
+    fill_in "contact[city]", with: "Walnut"
+    fill_in "contact[message]", with: "This is a message."
     click_button "Submit"
     page.should have_content("There was an error sending your message.")
-    page.should have_content("Phone number is invalid")
+    page.should have_content("Phone numberis invalid")
   end
 
   scenario "current Style Seat information on contact page" do
