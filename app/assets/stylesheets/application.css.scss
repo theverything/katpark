@@ -13,6 +13,12 @@
  *= require_tree .
  */
 
+.title-area li img{
+ position: relative;
+ top: -7px;
+ left: -15px;
+}
+
 .top-bar .title-area .name {
   h1 a {
     color: #969696;

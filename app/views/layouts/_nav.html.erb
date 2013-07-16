@@ -2,7 +2,12 @@
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
-        <h1><%= link_to "kat park", root_path %></h1>
+        <h1>
+          <%= link_to root_path  do%>
+            kat park
+            <%= image_tag "kp_logo_grn_sm.png" %>
+          <% end %>
+        </h1>
       </li>
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
