@@ -128,7 +128,7 @@ $default-float: left;
 
 // Enables media queries for block-grid classes. Set to false if writing semantic HTML.
 
-// $block-grid-media-queries: true;
+$block-grid-media-queries: true;
 
 //
 // Typography Variables
@@ -480,8 +480,8 @@ $alert-bottom-margin: emCalc(0px);
 // Close Button style
 
 // $alert-close-color: #333;
-// $alert-close-position: emCalc(5px);
-// $alert-close-font-size: emCalc(22px);
+$alert-close-position: emCalc(0px);
+$alert-close-font-size: emCalc(30px);
 // $alert-close-opacity: 0.3;
 // $alert-close-opacity-hover: 0.5;
 // $alert-close-padding: 5px 4px 4px;
