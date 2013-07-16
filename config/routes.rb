@@ -1,5 +1,6 @@
 Katpark::Application.routes.draw do
   root to: "home#index"
+  get "/about" => "home#about", as: :about
 
   devise_for :admins
 
