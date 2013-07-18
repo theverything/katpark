@@ -1,3 +1,5 @@
+<% provide(:title, 'Contact') %>
+<%= render 'layouts/page_title' %>
 <div class="row">
   <div class="large-8 columns border blush">
     <%= form_for @contact do |f| %>
@@ -10,11 +12,15 @@
     <% end %>
   </div>
   <div class="large-3 large-offset-1 columns border lav">
-    <img src="<%= @style_seat.image %>">
-    <h5><%= @style_seat.title %></h5>
-    <p><%= @style_seat.street_address %></p>
-    <p><%= "#{@style_seat.city}, #{@style_seat.state} #{@style_seat.zip_code}" %></p>
-    <p><%= @style_seat.phone_number %></p>
-    <a href="https://www.styleseat.com/katpark" class="button">Book Me</a>
+    <div class="row">
+      <div class="large-12 small-10 large-centered small-centered columns">
+        <img src="<%= @style_seat.image %>">
+        <h5><%= @style_seat.title %></h5>
+        <p><%= @style_seat.street_address %></p>
+        <p><%= "#{@style_seat.city}, #{@style_seat.state} #{@style_seat.zip_code}" %></p>
+        <p><%= @style_seat.phone_number %></p>
+        <a href="https://www.styleseat.com/katpark" class="button">Book Me</a>
+      </div>
+    </div>
   </div>
 </div>
