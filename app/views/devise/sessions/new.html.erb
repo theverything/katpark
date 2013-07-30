@@ -11,7 +11,7 @@
         <div><%= f.check_box :remember_me %></div>
       <% end -%>
 
-      <div><%= f.submit "Sign in" %></div>
+      <div><%= f.submit "Sign in", disable_with: "Signing in...", class: "button" %></div>
     <% end %>
 
     <%= render "devise/shared/links" %>

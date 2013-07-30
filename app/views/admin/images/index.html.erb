@@ -1,6 +1,6 @@
 <%= form_for [:admin, @image] do |f| %>
   <%= f.label :avatar, "Image #1" %>
-  <%= f.file_field :avatar %>
+  <%= f.file_field :avatar, label: false %>
   <%= f.submit "Upload Image", :disable_with => 'Uploading Image...', class: "button" %>
 <% end %>
 <table>
