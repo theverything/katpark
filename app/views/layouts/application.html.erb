@@ -13,7 +13,7 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title>kat park // <%= content_for?(:title) ? yield(:title) : "Welcome" %></title>
+  	<title>kat park | <%= content_for?(:title) ? yield(:title) : "Welcome" %></title>
 
   	<%= stylesheet_link_tag "application" %>
     <link href='http://fonts.googleapis.com/css?family=Podkova|Raleway:300' rel='stylesheet' type='text/css'>
@@ -29,5 +29,6 @@
     <%= yield %>
     <footer></footer>
     <%= javascript_include_tag "application" %>
+    <%= render 'layouts/disqus-comments' %>
   </body>
 </html>
