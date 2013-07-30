@@ -1,11 +1,8 @@
 <div class="large-8 columns">
   <%= form_for [:admin, @post] do |f| %>
-    <%= f.label :title, "Title" %><br>
     <%= f.text_field :title %>
-    <%= f.label :body, "Body" %><br>
     <%= f.text_area :body, size: "0x20", class: "post" %>
-    <%= f.label :featured, "Featured" %>
     <%= f.check_box :featured %><br>
-    <%= f.submit :disable_with => 'Create Posting...' %>
+    <%= f.submit :disable_with => 'Create Posting...', class: "button" %>
   <% end %>
 </div>
