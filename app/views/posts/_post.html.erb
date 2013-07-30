@@ -2,6 +2,6 @@
 <h2><%= link_to post.title, post_path(post.slug) %></h2>
 <strong>Posted on <%= post.created_at.strftime('%b %d, %Y') %></strong> |
 <%= link_to "comments", "#{post_path(post.slug)}#disqus_thread" %>
-<p><%== markdown(post.body) %></p>
+<p><%== markdown(post.body).truncate(140) %></p>
 </article>
 <hr>
