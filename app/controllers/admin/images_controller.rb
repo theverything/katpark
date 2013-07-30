@@ -18,8 +18,9 @@ class Admin::ImagesController < Admin::BaseController
       flash[:notice] = "Image has been uploaded."
       redirect_to admin_images_path
     else
-      flash[:alert] = "There was a problem uploading the image."
-      render "index"
+      flash[:alert] = "There was a problem uploading the image." +
+        " Error - Image #{@image.errors.messages.values[0][0]}"
+      redirect_to admin_images_path
     end
   end
 

@@ -4,4 +4,5 @@ class Image < ActiveRecord::Base
   has_attached_file :avatar, styles: { meduim: "300x300>", thumb: "100x100>" }
 
   validates :avatar, presence: true
+  validates_attachment :avatar, content_type: { content_type: ["image/jpeg", "image/png", "image/gif"] }
 end
