@@ -8,6 +8,6 @@ jQuery ->
       url = $('.pagination .next_page').attr('href')
       if url && $(window).scrollTop() > $(document).height() - $(window).height()
         $('.pagination').text("")
-        $('.pagination').append("Fetching more stuff <img src='/assets/ajax-loader.gif' />")
+        $('.pagination').append("<i class='icon-heart icon-spin'></i> Just a sec...")
         $.getScript(url)
     $(window).scroll()

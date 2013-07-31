@@ -1,0 +1,12 @@
+<div class="pagination">
+  <% if @posts.previous_page %>
+    <%= link_to params.merge(:page => @posts.previous_page ), class: "previous_page button small round"  do %>
+      <i class="icon-hand-left"></i> Previous
+    <% end %>
+  <% end %>
+  <% if @posts.next_page %>
+    <%= link_to params.merge(:page => @posts.next_page ), class: "next_page button small round" do %>
+      Next <i class="icon-hand-right"></i>
+    <% end %>
+  <% end %>
+</div>
