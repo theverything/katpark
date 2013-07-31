@@ -1,8 +1,6 @@
 <article>
   <h2><%= link_to post.title, post_path(post.slug) %></h2>
-  <strong>Posted on <%= post.created_at.strftime('%b %d, %Y') %></strong><br>
-  <%= link_to "comments", "#{post_path(post.slug)}#disqus_thread", class: "disqus-comment-count" %>
-  <i class="icon-comment"></i>
+  <%= render partial: 'posts/post_info', locals: { post: post} %>
   <p><%== markdown(post.body).truncate(140) %></p>
   <%= link_to post_path(post.slug) do %>
     Read More <i class="icon-arrow-right"></i>
