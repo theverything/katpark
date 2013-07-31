@@ -3,7 +3,7 @@
     <ul class="title-area">
       <li class="name">
         <h1>
-          <%= link_to root_path  do%>
+          <%= link_to root_path  do %>
             kat park
             <%= image_tag "kp_logo_grn_sm.png" %>
           <% end %>
@@ -23,8 +23,15 @@
         <% if admin_signed_in? %>
           <li class="has-dropdown"><a href="#"><%= current_admin.email %></a>
             <ul class="dropdown">
-              <li><%= link_to "Dashboard", admin_root_path %></li>
-              <li><%= link_to "Sign Out", destroy_admin_session_path, method: "delete" %></li>
+              <li><%= link_to admin_root_path do %>
+                  <i class="icon-dashboard"></i> Dashboard
+                <% end %></li>
+              <li><%= link_to "#" do %>
+                <i class="icon-user"></i> Profile
+              <% end %></li>
+              <li><%= link_to  destroy_admin_session_path, method: "delete" do %>
+                <i class="icon-signout"></i> Sign Out
+              <% end %></li>
             </ul>
           </li>
           <li class="divider"></li>
