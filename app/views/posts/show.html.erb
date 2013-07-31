@@ -1,11 +1,11 @@
 <% provide(:title, 'Blog') %>
 <%= render 'layouts/page_title' %>
 <div class="row">
-  <article>
+  <article class="large-12 columns">
     <h2><%= @post.title %></h2>
     <strong>Posted on <%= @post.created_at.strftime('%b %d, %Y') %></strong>
     <p><%== markdown(@post.body) %></p>
+    <hr>
+    <%= render 'disqus-thread' %>
   </article>
-  <hr>
-  <%= render 'disqus-thread' %>
 </div>

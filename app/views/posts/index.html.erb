@@ -1,8 +1,10 @@
 <% provide(:title, 'Blog') %>
 <%= render 'layouts/page_title' %>
 <div class="row">
-  <section id="posts">
+  <section id="posts" class="large-12 columns">
     <%= render @posts %>
   </section>
-  <%= render 'pagination' %>
+  <div class="large-12 columns">
+    <%= render 'pagination' %>
+  </div>
 </div>
