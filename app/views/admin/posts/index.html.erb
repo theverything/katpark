@@ -1,14 +1,14 @@
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Created</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render @posts %>
-  </tbody>
-</table>
+<%= render @posts %>
+<div class="admin-pagination">
+  <% if @posts.previous_page %>
+    <%= link_to params.merge(:page => @posts.previous_page ), class: "admin-previous_page button small round"  do %>
+      <i class="icon-hand-left"></i> Previous
+    <% end %>
+  <% end %>
+  <% if @posts.next_page %>
+    <%= link_to params.merge(:page => @posts.next_page ), class: "admin-next_page button small round" do %>
+      Next <i class="icon-hand-right"></i>
+    <% end %>
+  <% end %>
+</div>
+
