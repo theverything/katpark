@@ -100,7 +100,9 @@
       settings.clientId != null && (params.client_id = settings.clientId);
       settings.minId != null && (params.min_id = settings.minId);
       settings.maxId != null && (params.max_id = settings.maxId);
-      settings.show != null && (params.count = settings.show);
+      // double setting.show - hack for private images
+      // fixes https://github.com/potomak/jquery-instagram/issues/14#issuecomment-9531766
+      settings.show != null && (params.count = (settings.show * 2));
 
       url += "?" + $.param(params)
 
@@ -117,7 +119,7 @@
       success: function (res) {
         var length = typeof res.data != 'undefined' ? res.data.length : 0;
         var limit = settings.show != null && settings.show < length ? settings.show : length;
-
+        // console.log("limit: " + limit + " length: " + length);
         if (limit > 0) {
           for (var i = 0; i < limit; i++) {
             that.append(createPhotoElement(res.data[i]));
