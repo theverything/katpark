@@ -23,6 +23,12 @@ $em-base: 16px !default;
   @return $pxWidth / $em-base * 1em;
 }
 
+$blush: #FED9DF;
+$lav: #EFCDF8;
+$baby: #C0F1F3;
+$gray: #969696;
+
+
 .title-area li img{
  position: relative;
  top: -5px;
@@ -31,13 +37,13 @@ $em-base: 16px !default;
 
 .top-bar .title-area .name {
   h1 a {
-    color: #969696;
+    color: $gray;
     font-family: 'Raleway', san-serif;
   }
 }
 
 .top-bar .top-bar-section ul li > a {
-  color: #969696;
+  color: $gray;
   font-family: 'Podkova', serif;
 }
 
@@ -48,9 +54,14 @@ $em-base: 16px !default;
     right: 0;
   }
 }
- header {
+
+#main {
+  background-image: image-url("white_paperboard.png");
+}
+
+header {
   margin-bottom: 40px;
- }
+}
 
 textarea.post {
   height: 100%;
@@ -58,32 +69,6 @@ textarea.post {
 
 footer {
   margin-top: emCalc(60px);
-}
-
-.errorExplanation {
- background-color: #FFC1C1;
- padding: 20px;
- border: solid 2px #FF0000;
-  h2 {
-    font-size: 1.2em;
-  }
-  ul {
-    padding-left: 40px;
-    font-size: .9em;
-    margin-top: -10px;
-  }
-  li {
-
-  }
-  p {
-
-  }
-}
-
-.field_with_errors {
-  input[type="text"] {
-    border: solid 1px #FF0000;
-  }
 }
 
 .border {
@@ -94,12 +79,17 @@ footer {
 }
 .blush {
   @extend .border;
-  border-color: #FED9DF;
+  border-color: $blush;
 }
 
 .lav {
   @extend .border;
-  border-color: #EFCDF8;
+  border-color: $lav;
+}
+
+.baby {
+  @extend .border;
+  border-color: $baby;
 }
 
 .orbit-bullets {
@@ -119,10 +109,10 @@ footer {
       -moz-transition: box-shadow 500ms ease 0.2s;
       -o-transition: box-shadow 500ms ease 0.2s;
       transition: box-shadow 500ms ease 0.2s;
-      box-shadow: 3px 3px 0px 0px #969696;
+      box-shadow: 3px 3px 0px 0px $gray;
     }
     img:hover {
-      box-shadow: 6px 6px 0px 0px #969696;
+      box-shadow: 6px 6px 0px 0px $gray;
     }
   }
 }
@@ -136,4 +126,18 @@ footer {
 
 .post-info {
   list-style: none;
+}
+
+h2.post-title a {
+  color: $gray;
+  &:hover {
+    color: darken($gray, 5%)
+  }
+}
+
+.read-more {
+  color: $gray;
+  &:hover {
+    color: darken($gray, 5%)
+  }
 }
