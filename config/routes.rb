@@ -8,6 +8,9 @@ Katpark::Application.routes.draw do
     root to: "posts#index"
     resources :posts
     resources :images
+    resources :admins
+    get "/edit_password/:id" => "admins#edit_password", as: :edit_password
+    put "/edit_password/:id" => "admins#update_password", as: :update_password
   end
 
   devise_scope :admin do
