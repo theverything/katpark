@@ -2,7 +2,8 @@
   <%= form_for [:admin, @post] do |f| %>
     <%= f.text_field :title %>
     <%= f.text_area :body, size: "0x20", class: "post" %>
+    <%= f.text_field :author, value: current_admin.name %>
     <%= f.check_box :featured %><br>
-    <%= f.submit :disable_with => 'Create Posting...', class: "button" %>
+    <%= f.submit :disable_with => 'Submiting Post...', class: "button" %>
   <% end %>
 </div>
