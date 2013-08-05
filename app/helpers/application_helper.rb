@@ -5,4 +5,9 @@ module ApplicationHelper
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, markdown_options)
     markdown.render(text)
   end
+
+  def gravatar(email)
+    hash = Digest::MD5.hexdigest(email.downcase)
+    "http://www.gravatar.com/avatar/#{hash}"
+  end
 end
