@@ -1,4 +1,4 @@
-<article>
+<article class="<%= cycle("lav", "baby", "blush") %>">
   <h2 class="post-title"><%= link_to post.title, post_path(post.slug) %></h2>
   <%= render partial: 'posts/post_info', locals: { post: post} %>
   <p><%== markdown(post.body).truncate(140) %></p>
@@ -6,4 +6,3 @@
     Read More <i class="icon-arrow-right"></i>
   <% end %>
 </article>
-<hr>
