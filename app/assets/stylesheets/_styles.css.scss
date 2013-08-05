@@ -2,6 +2,7 @@ $blush: #FED9DF;
 $lav: #EFCDF8;
 $baby: #C0F1F3;
 $gray: #969696;
+$mint: #CCF8E5;
 
 
 .title-area li img{
@@ -30,8 +31,8 @@ $gray: #969696;
   }
 }
 
-#main {
-  background-image: image-url("white_paperboard.png");
+body {
+ background-color: lighten($mint, 7%);
 }
 
 header {
@@ -60,6 +61,7 @@ hr {
   border-width: 20px;
   padding: 15px;
   margin-bottom: 60px;
+  background-color: #FFF;
 }
 .blush {
   @extend .border;
