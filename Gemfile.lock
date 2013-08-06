@@ -90,7 +90,6 @@ GEM
       railties (~> 3.1)
       warden (~> 1.2.1)
     diff-lcs (1.2.4)
-    dynamic_form (1.1.4)
     email_spec (1.4.0)
       launchy (~> 2.1)
       mail (~> 2.2)
@@ -124,6 +123,7 @@ GEM
     method_source (0.8.1)
     mime-types (1.23)
     multi_json (1.7.7)
+    newrelic_rpm (3.6.6.147)
     nokogiri (1.5.10)
     orm_adapter (0.4.0)
     paperclip (3.4.2)
@@ -216,6 +216,9 @@ GEM
     treetop (1.4.14)
       polyglot
       polyglot (>= 0.3.1)
+    turbo-sprockets-rails3 (0.3.6)
+      railties (> 3.2.8, < 4.0.0)
+      sprockets (>= 2.0.0)
     tzinfo (0.3.37)
     uglifier (2.1.1)
       execjs (>= 0.3.0)
@@ -246,13 +249,13 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   delayed_job_active_record
   devise
-  dynamic_form
   email_spec
   factory_girl (= 2.6.4)
   figaro
   foundation_rails_helper
   jquery-rails
   launchy
+  newrelic_rpm
   opengraph!
   paperclip
   pg
@@ -266,6 +269,7 @@ DEPENDENCIES
   selenium-webdriver
   simplecov
   thin
+  turbo-sprockets-rails3
   uglifier (>= 1.0.3)
   unicorn
   will_paginate

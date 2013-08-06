@@ -10,10 +10,10 @@ gem 'opengraph', git: 'https://github.com/intridea/opengraph.git'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'redcarpet'
-gem 'dynamic_form'
 gem 'delayed_job_active_record'
 gem 'will_paginate'
 gem 'foundation_rails_helper'
+gem 'newrelic_rpm'
 
 group :production do
   gem 'unicorn'
@@ -24,6 +24,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'zurb-foundation'
+  gem 'turbo-sprockets-rails3'
 end
 
 group :test, :development do
