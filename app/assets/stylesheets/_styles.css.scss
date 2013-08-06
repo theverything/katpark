@@ -4,55 +4,34 @@ $baby: #C0F1F3;
 $gray: #969696;
 $mint: #CCF8E5;
 
-
-.title-area li img{
- position: relative;
- top: -5px;
- left: -5px;
-}
-
-.top-bar .title-area .name {
-  h1 a {
-    color: $gray;
-    font-family: 'Raleway', san-serif;
-  }
-}
-
-.top-bar .top-bar-section ul li > a {
-  color: $gray;
-  font-family: 'Podkova', serif;
-}
-
-.alert-box {
-  text-align: center;
-  a.close {
-    position: relative;
-    right: 0;
-  }
-}
+/* Global Styles */
 
 body {
  background-color: lighten($mint, 7%);
 }
 
 header {
-  margin-bottom: 40px;
-}
-
-textarea.post {
-  height: 100%;
+  margin-bottom: emCalc(40px);
 }
 
 footer {
   background-color: $gray;
   color: white;
-  padding-top: 50px;
+  padding-top: emCalc(50px);
   margin-top: emCalc(20px);
 }
 
-/**
- * sticky footer for zurb's foundation 4+
- */
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/* Footer */
+
 body {
   margin: 0;
 }
@@ -75,25 +54,40 @@ footer, .push {
       color: darken(white, 20%);
     }
     i {
-    padding-left: 20px;
+    padding-left: emCalc(20px);
     }
   }
 }
 
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
+/* Tob Bar */
+
+.top-bar .title-area .name {
+  h1 a {
+    color: $gray;
+    font-family: 'Raleway', san-serif;
+  }
 }
+
+.top-bar .top-bar-section ul li > a {
+  color: $gray;
+  font-family: 'Podkova', serif;
+}
+
+/* Logo */
+
+.title-area li img{
+ position: relative;
+ top: -5px;
+ left: -5px;
+}
+
+/* Borders */
 
 .border {
   border-style: solid;
   border-width: 20px;
-  padding: 15px;
-  margin-bottom: 60px;
+  padding: emCalc(15px);
+  margin-bottom: emCalc(60px);
   background-color: #FFF;
 }
 .blush {
@@ -111,13 +105,20 @@ hr {
   border-color: $baby;
 }
 
-.orbit-bullets {
-  display: none;
+/* Alert Box */
+
+.alert-box {
+  text-align: center;
+  a.close {
+    position: relative;
+    right: 0;
+  }
 }
 
-.page-title {
-  float: right;
-  font-size: 3em;
+/* Home Page */
+
+.orbit-bullets {
+  display: none;
 }
 
 .instagram {
@@ -134,6 +135,12 @@ hr {
       box-shadow: 6px 6px 0px 0px $gray;
     }
   }
+}
+
+/* Posts */
+
+textarea.post {
+  height: 100%;
 }
 
 .disqus-comment-count{
@@ -161,6 +168,8 @@ h2.post-title a {
   }
 }
 
+/* About Page */
+
 #about {
   font-size: 1.2em;
   img {
@@ -172,4 +181,11 @@ h2.post-title a {
 .big-letter {
   font-size: 1.5em;
   font-weight: bold;
+}
+
+/* Page Titles */
+
+.page-title {
+  float: right;
+  font-size: 3em;
 }
