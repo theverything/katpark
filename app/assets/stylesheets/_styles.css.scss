@@ -44,7 +44,40 @@ textarea.post {
 }
 
 footer {
-  margin-top: emCalc(60px);
+  background-color: $gray;
+  color: white;
+  padding-top: 50px;
+  margin-top: emCalc(20px);
+}
+
+/**
+ * sticky footer for zurb's foundation 4+
+ */
+body {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.wrapper {
+  min-height: 100%;
+  margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */
+}
+footer, .push {
+  height: 100px; /* .push must be the same height as .footer */
+}
+
+#social{
+  float: right;
+  a {
+    color: white;
+    &:hover {
+      color: darken(white, 20%);
+    }
+    i {
+    padding-left: 20px;
+    }
+  }
 }
 
 hr {
@@ -126,4 +159,17 @@ h2.post-title a {
   &:hover {
     color: darken($gray, 5%)
   }
+}
+
+#about {
+  font-size: 1.2em;
+  img {
+    float: left;
+    margin-right: 15px;
+  }
+}
+
+.big-letter {
+  font-size: 1.5em;
+  font-weight: bold;
 }

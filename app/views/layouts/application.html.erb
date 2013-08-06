@@ -27,8 +27,11 @@
       <%= render partial: 'layouts/flash', locals: { flash: flash } %>
       <%= render 'layouts/nav' %>
     </header>
-    <%= yield %>
-    <footer></footer>
+    <div class="wrapper">
+      <%= yield %>
+      <div class="push"></div>
+    </div>
+    <%= render 'layouts/footer' %>
     <%= javascript_include_tag "application" %>
     <%= render 'layouts/disqus-comments' %>
   </body>
