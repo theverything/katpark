@@ -1,6 +1,13 @@
 <% provide(:title, 'About') %>
 <%= render 'layouts/page_title' %>
 <div class="row">
-  <div class="large-12 columns">
+  <div id="about" class="large-12 columns blush">
+    <%= image_tag @style_seat.image %>
+    <p>
+      <span class="big-letter">K</span>at Park is a Southern California based hair and makeup artist. She is a licensed Cosmetologist and has been making people beautiful for about 8 years.
+    </p>
+    <p>
+      <span class="big-letter">W</span>ith a degree from FIDM, she uses her fashion flare to create Bridal accessories as well. Weddings are her forte and she loves making brides and loved ones feel perfect! Meeting new and exciting people is what makes her love what she does! <%= link_to "Contact", new_contact_path %> Kat Park for more info.
+    </p>
   </div>
 </div>
