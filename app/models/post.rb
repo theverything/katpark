@@ -1,7 +1,9 @@
 class Post < ActiveRecord::Base
   before_save :slugify
 
-  attr_accessible :body, :title, :featured, :author
+  belongs_to :author, class_name: "Admin"
+
+  attr_accessible :body, :title, :featured, :author_id
 
   validates :body, presence: true
   validates :title, presence: true

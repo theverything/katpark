@@ -1,5 +1,6 @@
 class Admin::PostsController < Admin::BaseController
   before_filter :find_post, only: [:show, :edit, :update, :destroy]
+  before_filter :get_admins, only: [:new, :create, :edit, :update]
 
   def index
     @posts = Post.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
@@ -47,5 +48,9 @@ class Admin::PostsController < Admin::BaseController
   private
   def find_post
     @post = Post.find(params[:id])
+  end
+
+  def get_admins
+    @admins = Admin.all
   end
 end

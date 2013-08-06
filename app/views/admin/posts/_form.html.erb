@@ -1,9 +1,14 @@
 <div class="large-8 columns">
-  <%= form_for [:admin, @post] do |f| %>
+  <%= form_for [:admin, @post], html: { class: "nice custom" } do |f| %>
     <%= f.text_field :title %>
     <%= f.text_area :body, size: "0x20", class: "post" %>
-    <%= f.text_field :author, value: current_admin.name %>
-    <%= f.check_box :featured %><br>
+    <div class="row">
+      <div class="large-6 columns">
+        <%= f.label :author_id, "Author" %>
+        <%= f.collection_select :author_id, @admins, :id, :name %>
+      </div>
+    </div>
+    <%= f.check_box :featured, label: " Featured" %><br>
     <%= f.submit :disable_with => 'Submiting Post...', class: "button" %>
   <% end %>
 </div>
