@@ -6,8 +6,8 @@ jQuery ->
   if $('.pagination').length
     $(window).scroll ->
       url = $('.pagination .next_page').attr('href')
-      if url && $(window).scrollTop() > $(document).height() - $(window).height() - 100
+      if url && $(window).scrollTop() > $(document).height() - $(window).height() - 150
         $('.pagination').text("")
-        $('.pagination').append("<i class='icon-heart icon-spin'></i> Just a sec...")
+        $('.pagination').append("<i class='icon-heart icon-spin icon-large'></i> Just a sec...")
         $.getScript(url)
     $(window).scroll()
