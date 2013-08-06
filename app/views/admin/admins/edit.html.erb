@@ -2,7 +2,7 @@
   <div class="large-6 columns">
     <%= form_for [:admin, @admin] do |f| %>
       <p>Gravatar<br>
-      <%= image_tag gravatar(@admin.email) %></p>
+      <%= image_tag gravatar(@admin.email, 100) %></p>
       <%= f.email_field :email %>
       <%= f.text_field :name %>
       <%= f.submit "Submit", :disable_with => 'Submiting...', class: "button" %>

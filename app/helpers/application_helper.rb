@@ -6,8 +6,8 @@ module ApplicationHelper
     markdown.render(text)
   end
 
-  def gravatar(email)
+  def gravatar(email, size)
     hash = Digest::MD5.hexdigest(email.downcase)
-    "http://www.gravatar.com/avatar/#{hash}"
+    "http://www.gravatar.com/avatar/#{hash}?s=#{size.to_s}"
   end
 end
