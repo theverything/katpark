@@ -144,12 +144,19 @@
             <h1>Unprocessable Entity <span>:(</span></h1>
             <p>The change you wanted was rejected.</p>
             <p>Maybe you tried to change something you didn't have access to.</p>
-            <p>Look a this kitten instead.</p>
-            <img src="http://placekitten.com/380/380">
+            <p>Look at this kitten instead.</p>
+            <img id="kitten" src="">
             <script>
                 var GOOG_FIXURL_LANG = (navigator.language || '').slice(0,2),GOOG_FIXURL_SITE = location.host;
             </script>
             <script src="//linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"></script>
+            <script>
+                var baseURL = "http://placekitten.com/";
+                var randNum = Math.floor(Math.random() * 10);
+                var size = "3" + randNum + "0/3" + randNum + "0";
+                var url = baseURL + size;
+                document.getElementById("kitten").src=url;
+            </script>
         </div>
     </body>
 </html>
