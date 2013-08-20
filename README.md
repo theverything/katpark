@@ -8,10 +8,11 @@ The redesign is a work in progress and it up on heroku for now. It can be found 
 
 ## To Do ##
 
-- [ ] Font Awesome integration
-- [ ] Admin can edit their info
-- [ ] Add author name to blog posts w/ gavitar support
+- [x] Font Awesome integration
+- [x] Admin can edit their info
+- [x] Add author name to blog posts w/ gavitar support
 - [x] Disqus integration into posts
 - [ ] Add tags to posts
 - [ ] Galleries
-- [ ] Add footer information
+- [x] Add footer information
+- [ ] Search page
