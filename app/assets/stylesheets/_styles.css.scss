@@ -189,3 +189,26 @@ h2.post-title a {
   float: right;
   font-size: 3em;
 }
+
+/* Scroll Bar */
+
+::-webkit-scrollbar {
+  width: 20px;
+  background-color: lighten($lav, 7%);;
+  // -webkit-border-radius: 100px;
+  }
+}
+/* hover effect for both scrollbar area, and scrollbar 'thumb' */
+::-webkit-scrollbar:hover {
+  background-color: lighten($lav, 3%);
+}
+
+/* The scrollbar 'thumb' ...that marque oval shape in a scrollbar */
+::-webkit-scrollbar-thumb:vertical {
+  background: $lav;
+  // -webkit-border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:vertical:active {
+  background: darken($lav, 10%); /* Some darker color when you click it */
+  // -webkit-border-radius: 100px;
+}
