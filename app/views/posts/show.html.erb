@@ -1,8 +1,7 @@
-<% provide(:title, 'Blog') %>
+<% provide(:title, @post.title) %>
 <%= render 'layouts/page_title' %>
 <div class="row">
   <article class="large-12 columns">
-    <h2><%= @post.title %></h2>
     <%= render partial: 'post_info', locals: { post: @post} %>
     <p><%== markdown(@post.body) %></p>
     <hr>

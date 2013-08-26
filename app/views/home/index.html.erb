@@ -34,3 +34,24 @@
     <ul class="instagram small-block-grid-3"></ul>
   </div>
 </div>
+
+<%= content_for :instagramjs do %>
+  <script>
+    jQuery(function($) {
+      $('.instagram').on('willLoadInstagram', function(event, options) {
+        $(this).append("<div id='loading'><i class='icon-heart icon-spin icon-large'></i> Just a sec...</div>")
+      });
+      $('.instagram').on('didLoadInstagram', function(event, response) {
+        $(this).text("");
+        $.each(response.data, function(index, value) {
+         $('.instagram').append("<li><a target='_blank' href='" + this.link + "'><img src='" + this.images.thumbnail.url + "' /></a></li>").hide().fadeIn("slow");
+        });
+      });
+      $('.instagram').instagram({
+        hash: 'katpark',
+        count: 6,
+        clientId: 'c3901ab170794c17a0c29c77a565c23a'
+      });
+    });
+  </script>
+<% end %>
