@@ -1,138 +1,78 @@
-/*
- * Instagram jQuery plugin
- * v0.2.1
- * http://potomak.github.com/jquery-instagram/
- * Copyright (c) 2012 Giovanni Cappellotto
- * Licensed MIT
- */
+/*! jQuery Instagram - v0.3.0 - 2013-08-10
+* http://potomak.github.com/jquery-instagram
+* Copyright (c) 2013 Giovanni Cappellotto; Licensed MIT */
+(function($) {
 
-(function ($){
-  $.fn.instagram = function (options) {
-    var that = this,
-        apiEndpoint = "https://api.instagram.com/v1",
-        settings = {
-            hash: null
-          , userId: null
-          , locationId: null
-          , search: null
-          , accessToken: null
-          , clientId: null
-          , show: null
-          , onLoad: null
-          , onComplete: null
-          , maxId: null
-          , minId: null
-          , next_url: null
-          , image_size: null
-          , photoLink: true
-        };
+  function composeRequest(options) {
+    var url = 'https://api.instagram.com/v1';
+    var data = {};
 
-    options && $.extend(settings, options);
-
-    function createPhotoElement(photo) {
-      var image_url = photo.images.thumbnail.url;
-
-      if (settings.image_size == 'low_resolution') {
-        image_url = photo.images.low_resolution.url;
-      }
-      else if (settings.image_size == 'thumbnail') {
-        image_url = photo.images.thumbnail.url;
-      }
-      else if (settings.image_size == 'standard_resolution') {
-        image_url = photo.images.standard_resolution.url;
-      }
-
-      var innerHtml = $('<img>')
-        .addClass('instagram-image')
-        .attr('src', image_url);
-
-      if (settings.photoLink) {
-        innerHtml = $('<a>')
-          .attr('target', '_blank')
-          .attr('href', photo.link)
-          .append(innerHtml);
-      }
-
-      return $('<li>')
-        .addClass('instagram-placeholder')
-        .attr('id', photo.id)
-        .append(innerHtml);
+    if (options.accessToken == null && options.clientId == null) {
+      throw 'You must provide an access token or a client id';
     }
 
-    function createEmptyElement() {
-      return $('<div>')
-        .addClass('instagram-placeholder')
-        .attr('id', 'empty')
-        .append($('<p>').html('No photos for this query'));
+    data = $.extend(data, {
+      access_token: options.accessToken,
+      client_id: options.clientId,
+      count: options.count
+    });
+
+    if (options.url != null) {
+      url = options.url;
     }
-
-    function composeRequestURL() {
-
-      var url = apiEndpoint,
-          params = {};
-
-      if (settings.next_url != null) {
-        return settings.next_url;
-      }
-
-      if (settings.hash != null) {
-        url += "/tags/" + settings.hash + "/media/recent";
-      }
-      else if (settings.search != null) {
-        url += "/media/search";
-        params.lat = settings.search.lat;
-        params.lng = settings.search.lng;
-        settings.search.max_timestamp != null && (params.max_timestamp = settings.search.max_timestamp);
-        settings.search.min_timestamp != null && (params.min_timestamp = settings.search.min_timestamp);
-        settings.search.distance != null && (params.distance = settings.search.distance);
-      }
-      else if (settings.userId != null) {
-        url += "/users/" + settings.userId + "/media/recent";
-      }
-      else if (settings.locationId != null) {
-        url += "/locations/" + settings.locationId + "/media/recent";
-      }
-      else {
-        url += "/media/popular";
-      }
-
-      settings.accessToken != null && (params.access_token = settings.accessToken);
-      settings.clientId != null && (params.client_id = settings.clientId);
-      settings.minId != null && (params.min_id = settings.minId);
-      settings.maxId != null && (params.max_id = settings.maxId);
-      // double setting.show - hack for private images
-      // fixes https://github.com/potomak/jquery-instagram/issues/14#issuecomment-9531766
-      settings.show != null && (params.count = (settings.show * 2));
-
-      url += "?" + $.param(params)
-
-      return url;
+    else if (options.hash != null) {
+      url += '/tags/' + options.hash + '/media/recent';
     }
+    else if (options.search != null) {
+      url += '/media/search';
+      data = $.extend(data, options.search);
+    }
+    else if (options.userId != null) {
+      if (options.accessToken == null) {
+        throw 'You must provide an access token';
+      }
+      url += '/users/' + options.userId + '/media/recent';
+    }
+    else if (options.location != null) {
+      url += '/locations/' + options.location.id + '/media/recent';
+      delete options.location.id;
+      data = $.extend(data, options.location);
+    }
+    else {
+      url += '/media/popular';
+    }
+    
+    return {url: url, data: data};
+  }
 
-    settings.onLoad != null && typeof settings.onLoad == 'function' && settings.onLoad();
+  $.fn.instagram = function(options) {
+    var that = this;
+    options = $.extend({}, $.fn.instagram.defaults, options);
+    var request = composeRequest(options);
 
     $.ajax({
-      type: "GET",
       dataType: "jsonp",
-      cache: false,
-      url: composeRequestURL(),
-      success: function (res) {
-        var length = typeof res.data != 'undefined' ? res.data.length : 0;
-        var limit = settings.show != null && settings.show < length ? settings.show : length;
-        // console.log("limit: " + limit + " length: " + length);
-        if (limit > 0) {
-          for (var i = 0; i < limit; i++) {
-            that.append(createPhotoElement(res.data[i]));
-          }
-        }
-        else {
-          that.append(createEmptyElement());
-        }
-
-        settings.onComplete != null && typeof settings.onComplete == 'function' && settings.onComplete(res.data, res);
+      url: request.url,
+      data: request.data,
+      success: function(response) {
+        that.trigger('didLoadInstagram', response);
       }
     });
 
+    this.trigger('willLoadInstagram', options);
+    
     return this;
   };
-})(jQuery);
+
+  $.fn.instagram.defaults = {
+    accessToken: null,
+    clientId: null,
+    count: null,
+    url: null,
+    hash: null,
+    userId: null,
+    location: null,
+    search: null
+  };
+
+}(jQuery));
