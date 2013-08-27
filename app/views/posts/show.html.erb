@@ -4,7 +4,19 @@
   <article class="large-12 columns">
     <%= render partial: 'post_info', locals: { post: @post} %>
     <p><%== markdown(@post.body) %></p>
+    <div class="social">
+      <%= link_to "//pinterest.com/pin/create/button/", data: { :'pin-do' => "buttonPin", :'pin-config' => "above" } do %>
+        <img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" />
+      <% end %>
+    </div>
     <hr>
     <%= render 'disqus-thread' %>
   </article>
 </div>
+
+<% content_for :postjs do %>
+  <%= render 'disqus-comments' %>
+  <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+<% end %>
+
+
