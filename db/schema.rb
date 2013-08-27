@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130805222906) do
+ActiveRecord::Schema.define(:version => 20130827175357) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -77,6 +77,8 @@ ActiveRecord::Schema.define(:version => 20130805222906) do
     t.string   "slug"
     t.integer  "author_id"
   end
+
+  add_index "posts", ["slug"], :name => "index_posts_on_slug"
 
   create_table "style_seats", :force => true do |t|
     t.string   "title"

@@ -23,6 +23,8 @@
   </head>
 
   <body>
+    <%= content_for :fbjs %>
+
     <header>
       <%= render partial: 'layouts/flash', locals: { flash: flash } %>
       <%= render 'layouts/nav' %>

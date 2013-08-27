@@ -14,4 +14,8 @@ class Post < ActiveRecord::Base
   def slugify
     self.slug = self.title.gsub(/[[:punct:]\|\+\^\$=~`<>]+/, "").parameterize
   end
+
+  def to_param
+    self.slug
+  end
 end

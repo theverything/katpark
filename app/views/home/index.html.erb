@@ -23,7 +23,7 @@
 <div class="row">
   <div class="large-4 columns border blush">
     <% if @featured %>
-      <h4><%= @featured.title %></h4>
+      <h4><%= link_to @featured.title, post_path(@featured) %></h4>
       <p>
         <%== markdown(@featured.body.truncate(250)) %>
       </p>
