@@ -8,7 +8,7 @@
       <%= link_to "//pinterest.com/pin/create/button/", data: { :'pin-do' => "buttonPin", :'pin-config' => "above" } do %>
         <img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" />
       <% end %>
-      <div class="fb-like" data-href="http://dev.kat-park<%= url_for(@post) %>" data-width="100" data-layout="box_count" data-show-faces="false" data-send="false"></div>
+      <div class="fb-like" data-href="http://dev.kat-park.com<%= url_for(@post) %>" data-width="450" data-layout="box_count" data-show-faces="false" data-send="false"></div>
     </div>
     <hr>
     <%= render 'disqus-thread' %>
