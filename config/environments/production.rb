@@ -40,7 +40,7 @@ Katpark::Application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Use a different cache store in production
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :dalli_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
@@ -54,17 +54,17 @@ Katpark::Application.configure do
   # Change mail delvery to either :smtp, :sendmail, :file, :test
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "kat-park.com",
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'heroku.com',
+    :enable_starttls_auto => true
   }
 
   # Specify what domain to use for mailer URLs
-  config.action_mailer.default_url_options = {host: "http://kat-park.herokuapp.com/"}
+  config.action_mailer.default_url_options = {host: "http://dev.kat-park.com/"}
 
   # Enable threaded mode
   # config.threadsafe!

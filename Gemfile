@@ -14,6 +14,8 @@ gem 'delayed_job_active_record'
 gem 'will_paginate'
 gem 'foundation_rails_helper'
 gem 'newrelic_rpm'
+gem 'memcachier'
+gem 'dalli'
 
 group :production do
   gem 'unicorn'
