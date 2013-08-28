@@ -1,3 +1,10 @@
+$em-base: 16px !default;
+
+// Working in ems is annoying. Think in pixels by using this handy function, emCalc(#px)
+@function emCalc($pxWidth) {
+  @return $pxWidth / $em-base * 1em;
+}
+
 $blush: #FED9DF;
 $lav: #EFCDF8;
 $baby: #C0F1F3;
