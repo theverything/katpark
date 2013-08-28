@@ -47,3 +47,16 @@ insertAtCaret: function(myValue){
 }
 });
 
+console.log("What's up? Type easterEgg.hi();")
+var easterEgg = {
+  hi: function() {
+    $("body").prepend("<div id='nerd' style='width: 100%; height: 400px; position: relative;'><div style='text-align: center; width: 50%; height: 350px; overflow: auto; margin: auto; position: absolute; top: 0; left: 0; bottom: 0; right: 0;'><h1>Hello Fellow Nerd</h1><img src='http://24.media.tumblr.com/695a8517bdf3ab7acb878ced176a431e/tumblr_mr5a11unVz1r9b6k3o1_500.gif' /></div></div>");
+    return ":p";
+  },
+
+  bye: function() {
+    $("#nerd").remove();
+    return " (╯°□°）╯︵ ┻━┻";
+  }
+};
+
