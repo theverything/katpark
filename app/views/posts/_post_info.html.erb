@@ -2,7 +2,9 @@
   <div class="large-5 columns">
     <div class="row">
       <div class="small-4 columns">
-        <%= image_tag gravatar(post.author.email, 100) %>
+        <div class="circle">
+          <%= image_tag gravatar(post.author.email, 100) %>
+        </div>
       </div>
       <div class="small-8 columns">
         <ul class="post-info">

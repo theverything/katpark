@@ -179,6 +179,13 @@ h2.post-title a {
   }
 }
 
+div.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
 /* About Page */
 
 #about {
