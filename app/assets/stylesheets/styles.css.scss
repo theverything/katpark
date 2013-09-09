@@ -22,10 +22,12 @@ header {
 }
 
 footer {
+  line-height: 100px;
   background-color: $gray;
   color: white;
-  padding-top: emCalc(50px);
   margin-top: emCalc(20px);
+  @media (max-width: 600px) {
+  }
 }
 
 hr {
@@ -39,18 +41,18 @@ hr {
 
 /* Footer */
 
-body {
-  margin: 0;
-}
-html, body {
-  height: 100%;
-}
-.wrapper {
+.page-wrap {
   min-height: 100%;
-  margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */
+  /* equal to footer height */
+  margin-bottom: 100px;
 }
-footer, .push {
-  height: 100px; /* .push must be the same height as .footer */
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+footer, .page-wrap:after {
+  /* .push must be the same height as footer */
+  height: 100px;
 }
 
 #social{
@@ -210,22 +212,22 @@ div.circle {
 
 /* Scroll Bar */
 
-::-webkit-scrollbar {
-  width: 20px;
-  background-color: lighten($lav, 7%);;
-  // -webkit-border-radius: 100px;
-}
+// ::-webkit-scrollbar {
+//   width: 20px;
+//   background-color: lighten($lav, 7%);;
+//   // -webkit-border-radius: 100px;
+// }
 /* hover effect for both scrollbar area, and scrollbar 'thumb' */
-::-webkit-scrollbar:hover {
-  background-color: lighten($lav, 3%);
-}
+// ::-webkit-scrollbar:hover {
+//   background-color: lighten($lav, 3%);
+// }
 
 /* The scrollbar 'thumb' ...that marque oval shape in a scrollbar */
-::-webkit-scrollbar-thumb:vertical {
-  background: $lav;
-  // -webkit-border-radius: 100px;
-}
-::-webkit-scrollbar-thumb:vertical:active {
-  background: darken($lav, 10%); /* Some darker color when you click it */
-  // -webkit-border-radius: 100px;
-}
+// ::-webkit-scrollbar-thumb:vertical {
+//   background: $lav;
+//   // -webkit-border-radius: 100px;
+// }
+// ::-webkit-scrollbar-thumb:vertical:active {
+//   background: darken($lav, 10%); /* Some darker color when you click it */
+//   // -webkit-border-radius: 100px;
+// }
