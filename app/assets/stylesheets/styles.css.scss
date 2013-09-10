@@ -25,7 +25,6 @@ footer {
   line-height: 100px;
   background-color: $gray;
   color: white;
-  margin-top: emCalc(20px);
   @media (max-width: 600px) {
   }
 }
@@ -41,10 +40,14 @@ hr {
 
 /* Footer */
 
+$footer-bp: 625px;
 .page-wrap {
   min-height: 100%;
   /* equal to footer height */
   margin-bottom: 100px;
+  @media (max-width: $footer-bp) {
+    margin-bottom: 200px;
+  }
 }
 .page-wrap:after {
   content: "";
@@ -53,6 +56,9 @@ hr {
 footer, .page-wrap:after {
   /* .push must be the same height as footer */
   height: 100px;
+  @media (max-width: $footer-bp) {
+    height: 200px;
+  }
 }
 
 #social{
@@ -63,8 +69,15 @@ footer, .page-wrap:after {
       color: darken(white, 20%);
     }
     i {
-    padding-left: emCalc(20px);
+      padding-left: emCalc(20px);
+      @media (max-width: $footer-bp) {
+        padding-left: 0;
+        padding-right: emCalc(20px);
+      }
     }
+  }
+  @media (max-width: $footer-bp) {
+    float: left;
   }
 }
 
