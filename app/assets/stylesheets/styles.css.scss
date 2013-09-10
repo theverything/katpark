@@ -21,13 +21,7 @@ header {
   margin-bottom: emCalc(40px);
 }
 
-footer {
-  line-height: 100px;
-  background-color: $gray;
-  color: white;
-  @media (max-width: 600px) {
-  }
-}
+
 
 hr {
     display: block;
@@ -39,45 +33,37 @@ hr {
 }
 
 /* Footer */
-
-$footer-bp: 625px;
-.page-wrap {
-  min-height: 100%;
-  /* equal to footer height */
-  margin-bottom: 100px;
-  @media (max-width: $footer-bp) {
-    margin-bottom: 200px;
-  }
-}
-.page-wrap:after {
-  content: "";
-  display: block;
-}
-footer, .page-wrap:after {
-  /* .push must be the same height as footer */
-  height: 100px;
-  @media (max-width: $footer-bp) {
-    height: 200px;
-  }
-}
-
-#social{
-  float: right;
-  a {
-    color: white;
-    &:hover {
-      color: darken(white, 20%);
-    }
-    i {
-      padding-left: emCalc(20px);
-      @media (max-width: $footer-bp) {
-        padding-left: 0;
-        padding-right: emCalc(20px);
+footer {
+  .top-footer {
+    background-color: lighten($gray, 30%);
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+    font-size: 1.5em;
+    a {
+      color: white;
+      .icon-dark {
+        color: $gray;
       }
     }
+    .icon-instagram:hover {
+      color: darken($blush, 10%);
+    }
+    .icon-facebook:hover {
+      color: darken($baby, 10%);
+    }
+    .icon-twitter:hover {
+      color: darken($lav, 10%);
+    }
+    .icon-pinterest:hover {
+      color: darken($mint, 10%);
+    }
   }
-  @media (max-width: $footer-bp) {
-    float: left;
+  .bottom-footer {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: $gray;
   }
 }
 
