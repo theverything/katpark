@@ -40,6 +40,9 @@ footer {
     line-height: 150px;
     text-align: center;
     font-size: 1.5em;
+    @media (max-width: 500px) {
+      font-size: 1.2em;
+    }
     a {
       color: white;
       .icon-dark {
