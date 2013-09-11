@@ -29,7 +29,7 @@
       </p>
     <% end %>
   </div>
-  <div class="large-7 large-offset-1 columns border baby">
+  <div id="instacontainer" class="large-7 large-offset-1 columns border baby">
     <h4>#katpark</h4>
     <ul class="instagram small-block-grid-3"></ul>
   </div>
@@ -39,10 +39,12 @@
   <script>
     jQuery(function($) {
       $('.instagram').on('willLoadInstagram', function(event, options) {
-        $(this).append("<div id='loading'><i class='icon-heart icon-spin icon-large'></i> Just a sec...</div>")
+        $("#instacontainer").append("<div id='loading'><i class='icon-heart icon-spin icon-4x'></i><br><br>Loading...</div>")
       });
       $('.instagram').on('didLoadInstagram', function(event, response) {
-        $(this).text("");
+        $("#loading").fadeOut('slow', function() {
+          $(this).remove();
+        });
         $.each(response.data, function(index, value) {
          $('.instagram').append("<li><a target='_blank' href='" + this.link + "'><img src='" + this.images.thumbnail.url + "' /></a></li>").hide().fadeIn("slow");
         });
