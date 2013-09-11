@@ -21,7 +21,11 @@ header {
   margin-bottom: emCalc(40px);
 }
 
-
+a {
+  &:hover {
+    text-decoration: underline;
+  }
+}
 
 hr {
     display: block;
@@ -45,6 +49,9 @@ footer {
     }
     a {
       color: white;
+      &:hover {
+        text-decoration: none;
+      }
       .icon-dark {
         color: $gray;
       }
@@ -76,12 +83,18 @@ footer {
   h1 a {
     color: $gray;
     font-family: 'Raleway', san-serif;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
 .top-bar .top-bar-section ul li > a {
   color: $gray;
   font-family: 'Podkova', serif;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 /* Logo */
@@ -132,24 +145,31 @@ footer {
   display: none;
 }
 
+#instacontainer {
+
+}
+
 .instagram {
   li {
     margin-top: emCalc(20px);
-    img {
-      -webkit-transition: box-shadow 500ms ease 0.2s;
-      -moz-transition: box-shadow 500ms ease 0.2s;
-      -o-transition: box-shadow 500ms ease 0.2s;
-      transition: box-shadow 500ms ease 0.2s;
-      box-shadow: 3px 3px 0px 0px $gray;
-    }
-    img:hover {
-      box-shadow: 6px 6px 0px 0px $gray;
-    }
+    // img {
+    //   -webkit-transition: box-shadow 500ms ease 0.2s;
+    //   -moz-transition: box-shadow 500ms ease 0.2s;
+    //   -o-transition: box-shadow 500ms ease 0.2s;
+    //   transition: box-shadow 500ms ease 0.2s;
+    //   box-shadow: 3px 3px 0px 0px $gray;
+    // }
+    // img:hover {
+    //   box-shadow: 6px 6px 0px 0px $gray;
+    // }
   }
 }
 
 #loading {
   color: $gray;
+  font-size: 1.5em;
+  width: 100%;
+  text-align: center;
 }
 
 /* Posts */

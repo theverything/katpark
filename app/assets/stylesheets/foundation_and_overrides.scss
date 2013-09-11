@@ -27,6 +27,11 @@ $em-base: 16px !default;
 // Various global styles
 
 $default-float: left;
+$blush: #FED9DF;
+$lav: #EFCDF8;
+$baby: #C0F1F3;
+$gray: #969696;
+$mint: #CCF8E5;
 
 // $body-bg: #fff;
 // $body-font-color: #222;
@@ -187,8 +192,8 @@ $header-font-color: #969696;
 // Anchors
 
 // $anchor-text-decoration: none;
-// $anchor-font-color: $primary-color;
-// $anchor-font-color-hover: darken($primary-color, 5%);
+$anchor-font-color: $gray;
+$anchor-font-color-hover: none;
 
 // <hr> element
 
