@@ -1,6 +1,6 @@
-$('#posts').append('<%= j render(@posts) %>');
+$('<%= j render(@posts) %>').appendTo('#posts').hide().fadeIn();
 $("#disqus-comments").remove();
-$('body').append('<%= j render "disqus-comments" %>')
+$('body').append('<%= j render "disqus-comments" %>');
 <% if @posts.next_page %>
   $('.pagination').replaceWith('<%= j will_paginate(@posts) %>');
 <% else %>

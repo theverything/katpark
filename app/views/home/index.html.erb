@@ -39,7 +39,7 @@
   <script>
     jQuery(function($) {
       $('.instagram').on('willLoadInstagram', function(event, options) {
-        $("#instacontainer").append("<div id='loading'><i class='icon-heart icon-spin icon-4x'></i><br><br>Loading...</div>")
+        $("#instacontainer").append("<div id='loading'><i class='icon-heart icon-spin icon-4x'></i><br><br>Loading...</div>");
       });
       $('.instagram').on('didLoadInstagram', function(event, response) {
         $("#loading").fadeOut('slow', function() {
