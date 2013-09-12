@@ -43,9 +43,7 @@
       <%= render partial: 'layouts/flash', locals: { flash: flash } %>
       <%= render 'layouts/nav' %>
     </header>
-    <div class="page-wrap">
-      <%= yield %>
-    </div>
+    <%= yield %>
     <%= render 'layouts/footer' %>
     <%= javascript_include_tag "application" %>
     <%= content_for :instagramjs %>
