@@ -1,6 +1,6 @@
 ---
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -8,29 +8,185 @@ const { title } = Astro.props;
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 <style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
+
+  ul[role="list"],
+  ol[role="list"] {
+    list-style: none;
+  }
+
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+  }
+
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *:before,
+    *:after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  :root {
+    --theme-primary: hsl(0, 0%, 5%);
+    --theme-on-primary: hsl(0, 0%, 90%);
+    --theme-primary--hover: hsl(0, 0%, 10%);
+    --theme-secondary: #ffffff;
+    --theme-on-secondary: #000000;
+    --theme-secondary--hover: #ffffff;
+    --theme-on-background--light: hsl(0, 0%, 89%);
+    --theme-background: hsl(0, 0%, 98%);
+    --theme-on-background: hsl(0, 0%, 5%);
+    --theme-surface-1: hsl(0, 0%, 92%);
+    --theme-on-surface-1: hsl(0, 0%, 10%);
+    --theme-button-border-radius: clamp(0.5rem, 1vw, 0.75rem);
+    --theme-img-border-radius: 0.5rem;
+    --step--2: clamp(0.91rem, calc(0.9rem + 0.05vw), 0.96rem);
+    --step--1: clamp(1.09rem, calc(1.07rem + 0.11vw), 1.2rem);
+    --step-0: clamp(1.31rem, calc(1.28rem + 0.19vw), 1.5rem);
+    --step-1: clamp(1.58rem, calc(1.52rem + 0.3vw), 1.88rem);
+    --step-2: clamp(1.89rem, calc(1.8rem + 0.45vw), 2.34rem);
+    --step-3: clamp(2.27rem, calc(2.14rem + 0.66vw), 2.93rem);
+    --step-4: clamp(2.72rem, calc(2.53rem + 0.94vw), 3.66rem);
+    --step-5: clamp(3.27rem, calc(3rem + 1.31vw), 4.58rem);
+    --space-3xs: clamp(0.31rem, calc(0.3rem + 0.06vw), 0.38rem);
+    --space-2xs: clamp(0.69rem, calc(0.68rem + 0.06vw), 0.75rem);
+    --space-xs: clamp(1rem, calc(0.98rem + 0.13vw), 1.13rem);
+    --space-s: clamp(1.31rem, calc(1.28rem + 0.19vw), 1.5rem);
+    --space-m: clamp(2rem, calc(1.95rem + 0.25vw), 2.25rem);
+    --space-l: clamp(2.63rem, calc(2.55rem + 0.38vw), 3rem);
+    --space-xl: clamp(3.94rem, calc(3.83rem + 0.56vw), 4.5rem);
+    --space-2xl: clamp(5.25rem, calc(5.1rem + 0.75vw), 6rem);
+    --space-3xl: clamp(7.88rem, calc(7.65rem + 1.13vw), 9rem);
+    --space-3xs-2xs: clamp(0.31rem, calc(0.23rem + 0.44vw), 0.75rem);
+    --space-2xs-xs: clamp(0.69rem, calc(0.6rem + 0.44vw), 1.13rem);
+    --space-xs-s: clamp(1rem, calc(0.9rem + 0.5vw), 1.5rem);
+    --space-s-m: clamp(1.31rem, calc(1.13rem + 0.94vw), 2.25rem);
+    --space-m-l: clamp(2rem, calc(1.8rem + 1vw), 3rem);
+    --space-l-xl: clamp(2.63rem, calc(2.25rem + 1.88vw), 4.5rem);
+    --space-xl-2xl: clamp(3.94rem, calc(3.53rem + 2.06vw), 6rem);
+    --space-2xl-3xl: clamp(5.25rem, calc(4.5rem + 3.75vw), 9rem);
+    --space-s-l: clamp(1.31rem, calc(0.98rem + 1.69vw), 3rem);
+    --font-family-heading: "Open Sans", sans-serif;
+    --font-family-body: "Lora", serif;
+    --body-max-width: 1920px;
+    --container-padding: 0 1rem;
+    --container-max-width: 1440px;
+    --container-max-width-narrow: 680px;
+    --nav-height: 76px;
+    --ease-out-soft: cubic-bezier(0.28, 0, 0.49, 1);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0 auto;
+    background-color: var(--theme-background);
+    color: var(--theme-on-background);
+    font-size: var(--step-0);
+    font-family: var(--font-family-body);
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: var(--body-max-width);
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  a {
+    color: inherit;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1 {
+    font-size: var(--step-4);
+    font-family: var(--font-family-heading);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: var(--step-3);
+    font-family: var(--font-family-heading);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: var(--step-2);
+    font-family: var(--font-family-heading);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  h4 {
+    font-size: var(--step-1);
+    font-family: var(--font-family-heading);
+  }
+
+  h1,
+  h2,
+  h3 {
+    max-width: 30ch;
+  }
+
+  p {
+    max-width: 60ch;
+  }
 </style>

@@ -1,81 +1,91 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import { Image, getImage, ImgAttributes } from "astro:assets";
+import paisley from "";
+
+interface Dimensions {
+  width: number;
+  height: number;
+}
+
+function maxWidth(max: number, { width, height }: Dimensions): Dimensions {
+  const ratio = height / width;
+
+  return { width: max, height: max * ratio };
+}
+
+function maxHeight(max: number, { width, height }: Dimensions): Dimensions {
+  const ratio = width / height;
+
+  return { width: max * ratio, height: max };
+}
+
+const glob = await Astro.glob("/src/assets/*").then((files) => {
+  return files.map((file) => file.default);
+});
+const images = await Promise.all(
+  glob.map((i: any) => {
+    console.log(i, { ...i, ...maxWidth(300, i) });
+    return getImage({ ...i, ...maxWidth(300, i) });
+  })
+).then((i) => {
+  console.log(i);
+  return i;
+});
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
+  <main class="container">
+    <ul class="images">
+      {
+        Array.from({ length: 15 })
+          .fill(images[0])
+          .map((i: any) => {
+            return (
+              <li class="image">
+                <Image src={i.src} {...i.attributes} alt="photo" />
+              </li>
+            );
+          })
+      }
+    </ul>
+  </main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .images {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    /* grid-auto-rows: 1fr; */
+    gap: 20px 20px;
+    grid-auto-flow: row;
+
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+  }
+
+  .image {
+    display: flex;
+    border-radius: 3px;
+    border: solid 1px var(--theme-on-background--light);
+    padding: 15px;
+  }
+
+  .image img {
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .image img:hover {
+    transform: scale(0.98);
+    border-radius: 0;
+  }
 </style>
