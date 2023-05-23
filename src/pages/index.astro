@@ -1,41 +1,39 @@
 ---
+import { Image, getImage } from "astro:assets";
+import { maxWidth } from "../util/image";
+import { getImageName } from "../util/string";
 import Layout from "../layouts/Layout.astro";
-import { Image, getImage, ImgAttributes } from "astro:assets";
-import paisley from "";
-
-interface Dimensions {
-  width: number;
-  height: number;
-}
-
-function maxWidth(max: number, { width, height }: Dimensions): Dimensions {
-  const ratio = height / width;
-
-  return { width: max, height: max * ratio };
-}
-
-function maxHeight(max: number, { width, height }: Dimensions): Dimensions {
-  const ratio = width / height;
-
-  return { width: max * ratio, height: max };
-}
 
 const glob = await Astro.glob("/src/assets/*").then((files) => {
   return files.map((file) => file.default);
 });
+
 const images = await Promise.all(
   glob.map((i: any) => {
-    console.log(i, { ...i, ...maxWidth(300, i) });
     return getImage({ ...i, ...maxWidth(300, i) });
   })
-).then((i) => {
-  console.log(i);
-  return i;
-});
+);
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Hello I'm Kat Park">
   <main class="container">
+    <header class="header">
+      <div class="header__content">
+        <h1>Kat Park</h1>
+        <p><em>Beauty Stylist</em></p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac
+          lorem eu sapien molestie ultrices. Proin suscipit velit ex, malesuada
+          scelerisque purus fermentum non. Sed id hendrerit ex, eget fermentum
+          justo. Nam nibh diam, dapibus sed justo nec, rhoncus faucibus.
+        </p>
+        <a class="header__link" href="/about">About Me</a>
+      </div>
+
+      <div class="header__img">
+        <div class="placeholder_img"></div>
+      </div>
+    </header>
     <ul class="images">
       {
         Array.from({ length: 15 })
@@ -43,7 +41,9 @@ const images = await Promise.all(
           .map((i: any) => {
             return (
               <li class="image">
-                <Image src={i.src} {...i.attributes} alt="photo" />
+                <a href={`/img/${getImageName(i.options.src)}`}>
+                  <Image src={i.src} {...i.attributes} alt="photo" />
+                </a>
               </li>
             );
           })
@@ -54,33 +54,106 @@ const images = await Promise.all(
 
 <style>
   .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header {
+    --grid-gap: 40px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+    margin: 50px 0 100px 0;
+    border-bottom: solid 1px var(--theme-on-background--light);
+    padding: 40px;
+    justify-content: center;
+    gap: var(--grid-gap) var(--grid-gap);
+    column-gap: var(--grid-gap);
+  }
+
+  .header__img {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
+  .placeholder_img {
+    width: 250px;
+    height: 250px;
+    background-color: gray;
+    border-radius: 100%;
+  }
+
+  .header__content {
+    flex: 2 1 400px;
+  }
+
+  .header__content > p {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+  }
+
+  .header__link {
+    width: fit-content;
+    padding: 0.36rem 0.92rem;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--theme-button-border-radius);
+    font-family: var(--font-family-heading);
+    font-weight: 500;
+    color: var(--theme-primary);
+    background-color: transparent;
+    border: 2px solid var(--theme-primary);
+    transition: background-color var(--theme-transition);
+    text-decoration: none;
+  }
+
+  .header__link:hover {
+    background-color: var(--theme-primary);
+    color: var(--theme-on-primary);
+  }
+
   .images {
+    --grid-gap: 20px;
+
     list-style: none;
     margin: 0;
     padding: 0;
-    display: grid;
-    /* grid-template-columns: 1fr 1fr 1fr; */
-    /* grid-auto-rows: 1fr; */
-    gap: 20px 20px;
-    grid-auto-flow: row;
 
-    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--grid-gap) var(--grid-gap);
   }
 
   .image {
+    --image-box: 300px;
+    --border-size: 1px;
+    --image-box-padding: 15px;
+    --grid-size: calc(
+      (var(--border-size) * 2) + (var(--image-box-padding) * 2) +
+        var(--image-box)
+    );
+
+    flex: 0 0 var(--grid-size);
     display: flex;
-    border-radius: 3px;
-    border: solid 1px var(--theme-on-background--light);
-    padding: 15px;
+    border-radius: var(--theme-img-border-radius);
+    border: solid var(--border-size) var(--theme-on-background--light);
+    padding: var(--image-box-padding);
   }
 
   .image img {
-    border-radius: 3px;
+    border-radius: var(--theme-img-border-radius);
     transition: all 0.3s ease-in-out;
   }
 

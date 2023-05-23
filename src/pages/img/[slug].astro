@@ -1,0 +1,32 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getImageName } from "../../util/string";
+
+export async function getStaticPaths() {
+  const glob: { src: string }[] = await Astro.glob("/src/assets/*").then(
+    (files) => {
+      return files.map((file) => file.default);
+    }
+  );
+
+  const routes = glob.map((file) => {
+    return {
+      params: {
+        slug: getImageName(file.src),
+      },
+      props: {
+        path: file.src,
+      },
+    };
+  });
+
+  return routes;
+}
+
+const { slug } = Astro.params;
+const { path } = Astro.props;
+---
+
+<Layout title={slug || ""}>
+  <img src={path} />
+</Layout>
